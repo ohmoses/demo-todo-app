@@ -21,7 +21,7 @@ export function indent () {
       index,
     } = getContext(getState())
 
-    if (index) {
+    if (id && index && getState().showSelected) {
       const previousSiblingId = siblingsIds.get(index - 1)
       const nephews = getContext(getState(), previousSiblingId).childrenIds
 
@@ -43,7 +43,7 @@ export function unindent () {
       parentId,
     } = getContext(getState())
 
-    if (parentId !== 'ROOT') {
+    if (id && parentId !== 'ROOT' && getState().showSelected) {
       const {
         parentId: grandpa,
         index: parentIndex,
@@ -74,24 +74,26 @@ function move (dir) {
   return (dispatch, getState) => {
     const { id, parentId, siblingsIds } = getContext(getState())
 
-    // Trivial case: if there is a sibling in the direction of the move, switch
-    // places with it.
-    if (id !== siblingsIds[dir === 'down' ? 'last' : 'first']()) {
-      dispatch(moveChild(parentId, id, dir === 'down' ? 1 : -1))
+    if (id && getState().showSelected) {
+      // Trivial case: if there is a sibling in the direction of the move, switch
+      // places with it.
+      if (id !== siblingsIds[dir === 'down' ? 'last' : 'first']()) {
+        dispatch(moveChild(parentId, id, dir === 'down' ? 1 : -1))
 
-    // If the selected task is the first/last child of its parent, find suitable
-    // move target if one exists.
-    } else if (parentId !== 'ROOT') {
-      // findMoveTarget returns undefined if no suitable target exists.
-      const newParent = findMoveTarget(parentId, 0, dir)
+        // If the selected task is the first/last child of its parent, find suitable
+        // move target if one exists.
+      } else if (parentId !== 'ROOT') {
+        // findMoveTarget returns undefined if no suitable target exists.
+        const newParent = findMoveTarget(parentId, 0, dir)
 
-      if (newParent) {
-        const { id, parentId } = getContext(getState())
-        const { childrenIds: newSiblings } = getContext(getState(), newParent)
+        if (newParent) {
+          const { id, parentId } = getContext(getState())
+          const { childrenIds: newSiblings } = getContext(getState(), newParent)
 
-        dispatch(removeChild(parentId, id))
-        dispatch(insertChild(newParent, id, dir === 'down' ? 0 : newSiblings.size))
-        dispatch(updateItem(id, { parent: newParent }))
+          dispatch(removeChild(parentId, id))
+          dispatch(insertChild(newParent, id, dir === 'down' ? 0 : newSiblings.size))
+          dispatch(updateItem(id, { parent: newParent }))
+        }
       }
     }
 
