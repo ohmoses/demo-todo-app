@@ -1,0 +1,123 @@
+$black: #222;
+$blackish: #444;
+$grey: #888;
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Liberation Sans', sans-serif;
+  color: $black;
+}
+
+.taskEditor {
+  width: 50em;
+  margin: 45px;
+
+  & > .taskList {
+    padding: 0
+  }
+
+  h1 {
+    margin: 0 auto 0.8em auto;
+    font-style: italic;
+    font-size: 2.5em;
+  }
+}
+
+.taskList {
+  padding-left: 1.8em;
+
+  li > div {
+      display: flex;
+  }
+}
+
+.taskRow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2em;
+}
+
+.pretask {
+  @extend .taskRow;
+  width: 1.2em;
+  color: $grey;
+}
+
+.triangle {
+  cursor: pointer;
+}
+
+.task {
+  @extend .taskRow;
+  width: 100%;
+  padding: 0.5em 0.5em 0.4em 0.5em;
+  border: solid 1px white;
+  border-radius: 2px;
+}
+
+textarea {
+  margin: -3px -3px;
+  width: 100%;
+  height: 24px;
+  resize: none;
+  overflow: auto;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: $grey;
+}
+
+.invalidated {
+  font-style: italic;
+  color: $grey;
+}
+
+.placeholder {
+  color: $grey;
+}
+
+.selected {
+  background-color: #d7efff;
+  border-color: #c7deed;
+}
+
+.about {
+  flex: 0 0 320px;
+  font-size: 13px;
+  color: $blackish;
+  margin: 45px 15px auto 15px;
+
+  h2 {
+    color: $black;
+    margin-top: 0;
+  }
+
+  h3 {
+    color: $black;
+    margin: 1.3em auto 0.8em auto;
+  }
+
+  td {
+    padding: 4px;
+  }
+
+  .left {
+    text-align: right;
+    color: #b10000;
+  }
+
+  .right {
+    padding-left: 8px;
+  }
+}
