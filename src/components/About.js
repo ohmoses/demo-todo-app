@@ -16,8 +16,11 @@ export default () => {
       <p>
         For now, it uses cookies to store your list. (I'll add features until someone decides to hire me, so if you come back in three months and it's hosted on Heroku and uses MongoDB, that means I <em>really</em> suck at interviews. Ha, ha.)
       </p>
-      <p>
+      <p className='completed'>
         Incidentally, if you're hiring developers in Brno, Vienna, or Bratislava, get in touch through <a href='http://www.linkedin.com/in/mosesskoda' target='blank'>LinkedIn</a> or <a href='mailto:moses.skoda@gmail.com'>e-mail</a>.
+      </p>
+      <p>
+        Nvm, got hired -_-
       </p>
     </div>
 
