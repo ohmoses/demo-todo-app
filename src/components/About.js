@@ -11,7 +11,7 @@ export default () => {
         I fell in love with <a href='http://www.checkvist.com' target='blank'>Checkvist</a>'s keyboard-centric UI, so instead of a regular bland to-do app, I decided to go with a super simplified knockoff of Checkvist.
       </p>
       <p>
-        Check out the code in the <a href='https://github.com/oh-moses/demo-todo-app' target='blank'>Github repo</a>.
+        Check out the code in the <a href='https://github.com/ohmoses/demo-todo-app' target='blank'>Github repo</a>.
       </p>
       <p>
         For now, it uses cookies to store your list. (I'll add features until someone decides to hire me, so if you come back in three months and it's hosted on Heroku and uses MongoDB, that means I <em>really</em> suck at interviews. Ha, ha.)
