@@ -40,7 +40,8 @@ function getInitialState () {
     }
   }
 
-  state.selectedTask = state.childrenFromId && state.childrenFromId.get('ROOT', { first: () => null }).first() || null
+  const rootChildren = state.childrenFromId && state.childrenFromId.get('ROOT')
+  state.selectedTask = (rootChildren && rootChildren.first()) || null
 
   return state
 }

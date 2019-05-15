@@ -5,7 +5,7 @@ export default () => {
   const desc =
     <div>
       <p>
-        This is a demo app to serve as a code sample for employers.
+        This is a demo app written as a code sample for potential employers.
       </p>
       <p>
         I fell in love with <a href='http://www.checkvist.com' target='blank'>Checkvist</a>'s keyboard-centric UI, so instead of a regular bland to-do app, I decided to go with a super simplified knockoff of Checkvist.
@@ -14,13 +14,7 @@ export default () => {
         Check out the code in the <a href='https://github.com/ohmoses/demo-todo-app' target='blank'>Github repo</a>.
       </p>
       <p>
-        For now, it uses cookies to store your list. (I'll add features until someone decides to hire me, so if you come back in three months and it's hosted on Heroku and uses MongoDB, that means I <em>really</em> suck at interviews. Ha, ha.)
-      </p>
-      <p className='completed'>
-        Incidentally, if you're hiring developers in Brno, Vienna, or Bratislava, get in touch through <a href='http://www.linkedin.com/in/mosesskoda' target='blank'>LinkedIn</a> or <a href='mailto:moses.skoda@gmail.com'>e-mail</a>.
-      </p>
-      <p>
-        Nvm, got hired -_-
+        Uses local storage to store your to-do list.
       </p>
     </div>
 
